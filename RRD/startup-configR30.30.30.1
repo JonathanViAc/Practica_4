@@ -1,0 +1,38 @@
+hostname Router0
+!
+service telnet
+service http encrypted password NSNOVUIQ$a0739f3096ebd6290a944828fef4f49f
+!
+administrator rcp encrypted password AGSOSXDJ$B/UnlNPGuPp.W2p/ZCIII/
+!
+!
+!
+!
+router rip
+  network 30.30.30.0/24
+  network 40.40.40.0/24
+  redistribute connected
+!
+interface loopback lo
+  ip address 127.0.0.1/8
+  ip mtu 16436
+!
+interface ethernet eth0
+  ip address 30.30.30.1/24
+  ip mtu 1500
+  no shutdown
+!
+interface ethernet eth1
+  ip address 40.40.40.1/24
+  ip mtu 1500
+  no shutdown
+!
+interface ethernet eth2
+  ip address 192.168.1.2/24
+  ip mtu 1500
+  no shutdown
+!
+interface ethernet eth3
+  ip mtu 1500
+  shutdown
+!
